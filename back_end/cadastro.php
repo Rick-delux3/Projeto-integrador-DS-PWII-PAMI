@@ -17,7 +17,7 @@
         }
 
         $stmt = $connection->prepare('INSERT INTO user (username, email, senha) VALUES (?, ?, ?)');
-        $stmt->bind_param('sss', $username, $email, $senha_hash);
+        $stmt->bind_param('sss', $username, $email, $senha);
         $stmt->execute();
     }
 ?>
@@ -26,12 +26,17 @@
     <form action="cadastro.php" method="POST">
         <label for="username"></label>
         <input type="text" name="username" id="username" placeholder="Usuário">
+
         <label for="email"></label>
         <input type="email" name="email" id="email" placeholder="Email">
+
         <label for="senha"></label>
         <input type="password" name="senha" id="senha" placeholder="Senha">
+        
         <label for="confirmar_senha"></label>
         <input type="password" name="confirmar_senha" placeholder="Confirmar Senha">
+
+        <button type="submit">Enviar</button>
     </form>
 </main>
 
