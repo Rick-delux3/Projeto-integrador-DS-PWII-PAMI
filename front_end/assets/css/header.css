@@ -15,6 +15,7 @@
 
 body {
     margin: 0;
+    background-color: var(--preto);
     font-family: var(--font-principal);
     /* background: #1c1c1c; */
 }

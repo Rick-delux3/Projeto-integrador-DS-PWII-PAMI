@@ -1,0 +1,75 @@
+:root{
+    --cor-primaria: #112026;
+    --cor-secundaria: #1E3A40;
+    --cor-terciaria: #3C6973;
+    --cor-quarternaria: #6A9BA6;
+    --cor-quinaria: #B4D2D9;
+    --branco: #E1EFF3;
+    --cinza: #151819;
+    --preto: #0D0F10;
+    --font-principal: 'Sansation';
+}
+
+body {
+    background-color: var(--preto);
+    margin: 0;
+    font-family: var(--font-principal);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.container{
+    
+}
+/* ------------------------------------ */
+/*        ÁREA SUPERIOR   (fundo azul)  */
+/* ------------------------------------ */
+.fundoCima {
+    background-color: var(--cor-secundaria);
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: -30px;
+}
+
+/* Caixa branca da imagem */
+.box-imagem {
+    width: 65%;
+    background-color: var(--branco);
+    border-radius: 6px;
+    padding: 40px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.box-imagem img {
+    width: 55%;
+    max-width: 400px;
+}
+
+/* ------------------------------------ */
+/*       ÁREA INFERIOR (conteúdo)       */
+/* ------------------------------------ */
+.fundoBaixo {
+    background-color: var(--preto);
+    padding: 60px 0;
+    color: var(--branco);
+    text-align: center;
+}
+
+.fundoBaixo h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.fundoBaixo p {
+    width: 60%;
+    margin: 0 auto 25px auto;
+    font-size: 15px;
+    line-height: 1.5;
+}
+

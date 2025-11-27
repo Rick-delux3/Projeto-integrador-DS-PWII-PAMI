@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/Mask group.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="shortcut icon" href="../front_end/assets/imagens/iconEmpresa.png" type="image/x-icon">
+    <link rel="stylesheet" href="../front_end/assets/css/style.css">
+    <link rel="stylesheet" href="../front_end/assets/css/header.css">
+    <link rel="stylesheet" href="../front_end/assets/css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 <body>
     <header>
         <nav>
-            <div class="icon"><img src="imagens/Mask group.png" alt="Icon da Empresa"></div>
+            <div class="icon"><img src="../front_end/assets/imagens/iconEmpresa.png" alt="Icon da Empresa"></div>
             <div class="buttonHome"><a href="../index.html">Home</a></div>
             <div class="buttonPost"><a href="../posts.html">Post</a></div>
             <div class="buttonSobre"><a href="../sobre_nos.html">Sobre Nós</a></div>   
