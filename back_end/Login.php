@@ -1,13 +1,17 @@
 <?php include '../front_end/assets/header.html'; ?>
 
-<?php include 'Api/conexao.php'; ?>
+<?php 
+    include 'Api/conexao.php';
+    include 'Api/cors.php';  
+?>
+
 
     <form action="Login.php" method="POST">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Entrar</button>
     </form>
-    
+
 <?php
     session_start();
     
