@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Estrutura para tabela `posts`
 --
 
+CREATE DATABASE `autoware`;
+
+USE `autoware`;
+
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
