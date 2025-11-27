@@ -1,0 +1,50 @@
+/* Fundo geral da página */
+body {
+    margin: 0;
+    /* background: #1c1c1c; */
+}
+
+/* HEADER PRINCIPAL */
+header {
+    width: 100%;
+    height: 70px;
+    background: #0f232c;  
+    align-items: center;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* ÍCONE À ESQUERDA */
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+/* NAV - MENU */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* LINKS DO MENU */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* Estilos individuais (caso precise no futuro) */
+.buttonHome a,
+.buttonPost a,
+.buttonSobre a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hover opcional (igual aparência da imagem: sem mudanças) */
+nav a:hover {
+    opacity: 0.85;
+}
