@@ -1,5 +1,5 @@
 /* Fundo geral da página */
-:root{
+:root {
     --cor-primaria: #112026;
     --cor-secundaria: #1E3A40;
     --cor-terciaria: #3C6973;
@@ -23,7 +23,7 @@ body {
 header {
     width: 100%;
     height: 70px;
-    background: var(--cor-primaria);  
+    background: var(--cor-primaria);
     align-items: center;
     padding: 0 20px;
     gap: 30px;

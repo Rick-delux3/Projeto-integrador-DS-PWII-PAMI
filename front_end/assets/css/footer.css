@@ -1,11 +1,25 @@
+:root {
+    --cor-primaria: #112026;
+    --cor-secundaria: #1E3A40;
+    --cor-terciaria: #3C6973;
+    --cor-quarternaria: #6A9BA6;
+    --cor-quinaria: #B4D2D9;
+    --branco: #E1EFF3;
+    --cinza: #151819;
+    --preto: #0D0F10;
+    --font-principal: 'Sansation';
+}
+
 footer {
     width: 100%;
     height: 80px;
-    background: #0f232c;            /* Mesma cor do header */
+    background: var(--cor-primaria);
+    /* Mesma cor do header */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;               /* Igual ao espaçamento visto no exemplo */
+    margin-top: 40px;
+    /* Igual ao espaçamento visto no exemplo */
 }
 
 /* TEXTO DO FOOTER */
