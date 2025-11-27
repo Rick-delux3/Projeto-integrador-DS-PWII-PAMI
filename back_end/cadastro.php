@@ -27,6 +27,8 @@
         <label for="username"></label>
         <input type="text" name="username" id="username" placeholder="Usuário">
 
+        
+
         <label for="email"></label>
         <input type="email" name="email" id="email" placeholder="Email">
 
