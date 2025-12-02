@@ -5,7 +5,6 @@
     include 'Api/cors.php';  
 ?>
 
-    
     <form action="Login.php" method="POST">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="senha" placeholder="Senha" required>
