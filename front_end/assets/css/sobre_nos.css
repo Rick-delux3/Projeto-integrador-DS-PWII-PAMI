@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
 :root{
     --cor-primaria: #112026;
     --cor-secundaria: #1E3A40;
@@ -7,69 +9,60 @@
     --branco: #E1EFF3;
     --cinza: #151819;
     --preto: #0D0F10;
-    --font-principal: 'Sansation';
+    --font-principal: 'Inter', sans-serif;
 }
 
 body {
-    background-color: var(--preto);
     margin: 0;
+    padding: 0;
+    background: var(--preto);
     font-family: var(--font-principal);
-    height: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 TOPO DA PÁGINA                              */
+/* -------------------------------------------------------------------------- */
+
+.sobre-nos-topo {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 70px;
-}
-
-.container{
-    
-}
-/* ------------------------------------ */
-/*        ÁREA SUPERIOR   (fundo azul)  */
-/* ------------------------------------ */
-.fundoCima {
-    background-color: var(--cor-secundaria);
     height: 330px;
+    background: var(--cor-secundaria);
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    padding-bottom: -30px;
+    position: relative;
 }
 
-/* Caixa branca da imagem */
-.box-imagem {
-    width: 65%;
-    background-color: var(--branco);
-    border-radius: 6px;
-    padding: 40px 10px;
-    display: flex;
-    justify-content: center;
+.sobre-nos-imagem img {
+    width: 350px;
+    user-select: none;
 }
 
-.box-imagem img {
-    width: 55%;
-    max-width: 400px;
-}
+/* -------------------------------------------------------------------------- */
+/*                             CONTEÚDO PRINCIPAL                              */
+/* -------------------------------------------------------------------------- */
 
-/* ------------------------------------ */
-/*       ÁREA INFERIOR (conteúdo)       */
-/* ------------------------------------ */
-.fundoBaixo {
-    background-color: var(--preto);
-    padding: 60px 0;
+.sobre-nos-conteudo {
+    background: var(--preto);
     color: var(--branco);
     text-align: center;
+    padding: 40px 20%;
 }
 
-.fundoBaixo h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
+.sobre-nos-conteudo h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
 }
 
-.fundoBaixo p {
-    width: 60%;
-    margin: 0 auto 25px auto;
-    font-size: 15px;
-    line-height: 1.5;
+.sobre-nos-conteudo p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 18px;
+    color: var(--branco);
 }
 
+/* Remove qualquer interferência do footer/header */
+.sobre-nos-conteudo * {
+    box-sizing: border-box;
+}
