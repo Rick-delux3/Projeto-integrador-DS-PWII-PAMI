@@ -1,7 +1,6 @@
 <?php
     include 'Api/cors.php';
     include 'Api/conexao.php';
-    include '../front_end/assets/header.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = isset($_POST['username']) ? $_POST['username'] : exit();
@@ -21,27 +20,65 @@
         $stmt->execute();
     }
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../front_end/assets/css/cadastro.css">
+    <title>Cadastro</title>
+</head>
 
-<main>
-    <form action="cadastro.php" method="POST">
-        <label for="username"></label>
-        <input type="text" name="username" id="username" placeholder="Usuário">
+<body>
+    <main class="cadastro-container">
 
-        
+        <!-- Card do Formulário -->
+        <section class="card-cadastro">
+            <h2>Cadastro</h2>
 
-        <label for="email"></label>
-        <input type="email" name="email" id="email" placeholder="Email">
+            <form action="cadastro.php" method="POST">
 
-        <label for="senha"></label>
-        <input type="password" name="senha" id="senha" placeholder="Senha">
-        
-        <label for="confirmar_senha"></label>
-        <input type="password" name="confirmar_senha" placeholder="Confirmar Senha">
+                <div class="input-group">
+                    <input type="text" name="username" id="username" placeholder="Usuário">
+                </div>
 
-        <button type="submit">Enviar</button>
-    </form>
-</main>
+                <div class="input-group">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
 
-<?php
-    include '../front_end/assets/footer.php';
-?>
+                <div class="input-group senha-group">
+                    <input type="password" name="senha" id="senha" placeholder="Senha">
+                    <span class="toggle-senha" onclick="toggleSenha('senha', this)">👁️</span>
+                </div>
+
+                <div class="input-group senha-group">
+                    <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirmar Senha">
+                    <span class="toggle-senha" onclick="toggleSenha('confirmar_senha', this)">👁️</span>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar</button>
+
+            </form>
+        </section>
+
+        <!-- Área da Imagem -->
+        <section class="imagem-lateral">
+            <!-- 🖼️ coloque aqui a imagem que você quiser -->
+        </section>
+
+    </main>
+
+<script>
+function toggleSenha(id, icon) {
+    let campo = document.getElementById(id);
+    if (campo.type === "password") {
+        campo.type = "text";
+        icon.style.opacity = "0.5";
+    } else {
+        campo.type = "password";
+        icon.style.opacity = "1";
+    }
+}
+</script>
+
+</body>
+</html>
