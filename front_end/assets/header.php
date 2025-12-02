@@ -22,8 +22,8 @@
     <header>
         <nav>
             <div class="icon"><img src="../front_end/assets/imagens/iconEmpresa.png" alt="Icon da Empresa"></div>
-            <div class="buttonHome"><a href="index.php">Home</a></div>
-            <div class="buttonPost"><a href="posts.php">Post</a></div>
-            <div class="buttonSobre"><a href="sobre_nos.php">Sobre Nós</a></div>   
+            <div class="buttonHome"><a href="../front_end/index.php">Home</a></div>
+            <div class="buttonPost"><a href="../front_end/posts.php">Post</a></div>
+            <div class="buttonSobre"><a href="../front_end/sobre_nos.php">Sobre Nós</a></div>   
         </nav>
     </header>
