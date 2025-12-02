@@ -1,4 +1,4 @@
-<?php include '../front_end/header.html'; ?>
+<?php include '../front_end/header.php'; ?>
 <?php include 'Api/conexao.php' ?>
 
 
@@ -15,4 +15,4 @@ if (!isset($_SESSION['id'])) {
 
 
 
-<?php include '../front_end/footer.html'; ?>
+<?php include '../front_end/footer.php'; ?>

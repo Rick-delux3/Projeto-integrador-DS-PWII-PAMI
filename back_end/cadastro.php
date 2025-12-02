@@ -1,7 +1,7 @@
 <?php
     include 'Api/cors.php';
     include 'Api/conexao.php';
-    include '../front_end/assets/header.html';
+    include '../front_end/assets/header.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = isset($_POST['username']) ? $_POST['username'] : exit();
@@ -43,5 +43,5 @@
 </main>
 
 <?php
-    include '../front_end/assets/footer.html';
+    include '../front_end/assets/footer.php';
 ?>
