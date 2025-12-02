@@ -1,5 +1,5 @@
 <footer>
-    <p class="footer">© Todos os direitos reservados-Nome_Empresa</p>
+    <p class="footer">© Todos os direitos reservados AutoWare</p>
 </footer>
 
 </style>
