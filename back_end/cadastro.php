@@ -29,53 +29,72 @@
 </head>
 
 <body>
-    <main class="cadastro-container">
 
-        <!-- Card do Formulário -->
-        <section class="card-cadastro">
-            <h2>Cadastro</h2>
+<header class="navbar">
+    <div class="logo"></div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Posts</a>
+        <a href="#">Sobre nós</a>
+    </nav>
+</header>
 
-            <form action="cadastro.php" method="POST">
+<main class="cadastro-container">
 
-                <div class="input-group">
-                    <input type="text" name="username" id="username" placeholder="Usuário">
-                </div>
+    <section class="card-cadastro">
+        <h2>Cadastro</h2>
 
-                <div class="input-group">
-                    <input type="email" name="email" id="email" placeholder="Email">
-                </div>
+        <form action="cadastro.php" method="POST">
 
-                <div class="input-group senha-group">
-                    <input type="password" name="senha" id="senha" placeholder="Senha">
-                    <span class="toggle-senha" onclick="toggleSenha('senha', this)">👁️</span>
-                </div>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Usuário">
+            </div>
 
-                <div class="input-group senha-group">
-                    <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirmar Senha">
-                    <span class="toggle-senha" onclick="toggleSenha('confirmar_senha', this)">👁️</span>
-                </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email">
+            </div>
 
-                <button type="submit" class="btn-enviar">Enviar</button>
+            <div class="input-group senha-group">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <img src="../front_end/assets/imagens/olhos.png" 
+                     class="toggle-senha-img" 
+                     data-open="../front_end/assets/imagens/olhos.png"
+                     data-close="../front_end/assets/imagens/olhos-fechados.png"
+                     onclick="toggleSenha('senha', this)">
+            </div>
 
-            </form>
-        </section>
+            <div class="input-group senha-group">
+                <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirmar Senha">
+                <img src="../front_end/assets/imagens/olhos.png" 
+                     class="toggle-senha-img" 
+                     data-open="../front_end/assets/imagens/olhos.png"
+                     data-close="../front_end/assets/imagens/olhos-fechados.png"
+                     onclick="toggleSenha('confirmar_senha', this)">
+            </div>
 
-        <!-- Área da Imagem -->
-        <section class="imagem-lateral">
-            <!-- 🖼️ coloque aqui a imagem que você quiser -->
-        </section>
+            <button type="submit" class="btn-enviar">Enviar</button>
 
-    </main>
+        </form>
+    </section>
+
+    <section class="imagem-lateral"></section>
+
+</main>
+
+<footer class="rodape">
+    © Todos os direitos reservados - AutoWare
+</footer>
 
 <script>
 function toggleSenha(id, icon) {
     let campo = document.getElementById(id);
+
     if (campo.type === "password") {
         campo.type = "text";
-        icon.style.opacity = "0.5";
+        icon.src = icon.dataset.close;
     } else {
         campo.type = "password";
-        icon.style.opacity = "1";
+        icon.src = icon.dataset.open;
     }
 }
 </script>

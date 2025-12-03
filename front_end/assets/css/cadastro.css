@@ -1,96 +1,133 @@
 :root{
-    --cor-primaria: #112026;
-    --cor-secundaria: #1E3A40;
-    --cor-terciaria: #3C6973;
-    --cor-quarternaria: #6A9BA6;
-    --cor-quinaria: #B4D2D9;
-    --branco: #E1EFF3;
-    --cinza: #151819;
-    --preto: #0D0F10;
-    --font-principal: 'Sansation';
+    --cor-primaria: #0C181C;
+    --cor-secundaria: #13282D;
+    --cor-terciaria: #335861;
+    --cor-campo: #2F525A;
+    --cor-botao: #DCE7EA;
+    --cor-texto: #E8F0F2;
+    --preto: #050607;
 }
 
+/* Zerar margem */
 body{
     margin: 0;
+    background: var(--preto);
+    font-family: Arial, sans-serif;
 }
 
-/* Container geral */
+/* NAVBAR */
+.navbar{
+    width: 100%;
+    height: 70px;
+    background: var(--cor-primaria);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar .logo{
+    width: 50px;
+    height: 50px;
+    background: #D7E7EB;
+    border-radius: 4px;
+}
+
+.navbar nav{
+    margin-left: 20px;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+/* CONTAINER PRINCIPAL */
 .cadastro-container{
     display: flex;
-    width: 100%;
-    height: 100vh;
-    background: var(--preto);
+    height: calc(100vh - 120px);
 }
 
-/* Card do formulário */
+/* CARD DE CADASTRO */
 .card-cadastro{
-    width: 40%;
+    width: 45%;
     background: var(--cor-secundaria);
-    margin: auto 0 auto 60px;
-    padding: 40px;
-    border-radius: 10px;
-    color: var(--branco);
+    color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 40px;
 }
 
 .card-cadastro h2{
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 25px;
 }
 
 /* Inputs */
 .input-group{
-    width: 100%;
-    margin-bottom: 20px;
+    width: 80%;
+    margin-bottom: 18px;
     position: relative;
 }
 
 .input-group input{
     width: 100%;
-    padding: 12px 15px;
+    padding: 14px;
     border-radius: 6px;
-    background: var(--cor-terciaria);
     border: none;
-    color: var(--branco);
+    background: var(--cor-campo);
+    color: var(--cor-texto);
     font-size: 16px;
 }
 
 /* Ícone olho */
-.senha-group{
-    display: flex;
-    align-items: center;
-}
-
-.toggle-senha{
-    cursor: pointer;
+.toggle-senha-img{
     position: absolute;
     right: 12px;
-    font-size: 20px;
-    color: var(--branco);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+.toggle-senha-img:hover{
+    opacity: 1;
 }
 
 /* Botão */
 .btn-enviar{
     width: 40%;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 6px;
-    background: var(--cor-quinaria);
-    color: var(--preto);
+    background: var(--cor-botao);
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-.btn-enviar:hover{
-    background: var(--cor-quarternaria);
-}
-
-/* Área da imagem */
+/* IMAGEM LATERAL */
 .imagem-lateral{
-    width: 60%;
-    background: url('../front_end/assets/imagem/predioEmpresa.png') no-repeat center center;
+    width: 55%;
+    background: url('../imagens/predioEmpresa.png') no-repeat center;
     background-size: cover;
+}
+
+/* Rodapé */
+.rodape{
+    width: 100%;
+    height: 50px;
+    background: var(--cor-primaria);
+    color: #B8C8CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
 }
