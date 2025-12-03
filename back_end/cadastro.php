@@ -23,21 +23,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
+    <title>Login</title>
+
+   
+    <link rel="icon" type="image/png" href="../front_end/assets/imagens/iconEmpresa.png">
+
     <link rel="stylesheet" href="../front_end/assets/css/cadastro.css">
-    <title>Cadastro</title>
 </head>
 
 <body>
-
-<header class="navbar">
-    <div class="logo"></div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Posts</a>
-        <a href="#">Sobre nós</a>
-    </nav>
-</header>
 
 <main class="cadastro-container">
 
@@ -80,10 +78,6 @@
     <section class="imagem-lateral"></section>
 
 </main>
-
-<footer class="rodape">
-    © Todos os direitos reservados - AutoWare
-</footer>
 
 <script>
 function toggleSenha(id, icon) {
