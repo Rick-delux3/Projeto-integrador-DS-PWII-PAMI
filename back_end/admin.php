@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../front_end/assets/css/admin.css">
 </head>
 <main>
+    <div id="lista" class="container"></div>
     <button id="abrir-modal">Adicionar post</button>
     <div>
         <div id="modal"  class="hidden">
@@ -38,6 +39,39 @@
 </main>
 
 <script>
+    let lista = document.getElementById("lista");
+
+        let posts = {};
+
+         function getPosts(){
+                isLoading = true;
+
+            fetch('http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/listar_post.php',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            )
+            .then(response => response.json())
+            .then(response => {
+                response.foreach(post =>{
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.setAttribute('id', post.CodFun);
+                    row.setAttribute('onclick', 'alert("Postagem ' + post.Nome + ' selecionado de id ' + fun.CodFun + '")');
+                })
+
+                
+
+            })
+
+         }
+
+</script>
+
+<script>
     const abrir_modal = document.querySelector("#abrir-modal");
     const fechar_modal = document.querySelector("#fechar-modal");
     const modal = document.querySelector("#modal");
@@ -49,6 +83,9 @@
     fechar_modal.addEventListener("submit", () => {
         modal.classList.add("hidden");
     })
+
+
+
 </script>
 
 <?php
