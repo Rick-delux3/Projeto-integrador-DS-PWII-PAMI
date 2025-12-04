@@ -1,11 +1,12 @@
 <?php
+    session_start();
+
     include 'Api/cors.php';
     include 'Api/conexao.php';
     include '../front_end/assets/header.php';
 ?>
 
 <?php
-    session_start();
     
     if (!isset($_SESSION['id'])) {
         header("Location: login.php");
@@ -39,18 +40,18 @@
             echo "<script>alert('Post criado!'); window.location='admin.php';</script>";
             exit;
         } else {
-            echo "<script>alert('Erro ao criar post: " . $connection->error . "');</script>";
+            die("Erro no INSERT: " . $connection->error);
         }
     }
 ?>
 
-<main class="py-4">
+<main>
     <div class="container">
         
         <div class="row justify-content-center mb-4">
             <div class="col-12 col-md-8 col-lg-6 d-grid">
                 <button id="abrir-modal" class="btn btn-primary btn-lg shadow-sm">
-                    <span style="font-size:20px;">➕</span> Novo Post
+                    <span style="font-size:20px;">+</span> Novo Post
                 </button>
             </div>
         </div>
@@ -71,7 +72,7 @@
 
                     <h4 id="titulo-modal" class="mb-3">Novo Post</h4>
 
-                    <form id="form-modal" enctype="multipart/form-data">
+                    <form id="form-modal" enctype="multipart/form-data" method="POST">
 
                         <input type="hidden" id="id_post" name="id">
     
@@ -262,37 +263,40 @@
     });
 
     // Form Submit
-    document.querySelector("#form-modal").addEventListener("submit", function(e){
-        e.preventDefault();
+   document.querySelector("#form-modal").addEventListener("submit", function(e){
+    e.preventDefault();
 
-        const id = document.querySelector("#id_post").value;
-        
-        // Se tiver ID, usa fetch para editar. Se não, submit normal para o PHP criar.
-        if(id){
-            const titulo = document.querySelector("#titulo").value;
-            const conteudo = document.querySelector("#conteudo").value;
+    const id = document.querySelector("#id_post").value;
 
-            fetch(UrlEditar, {
-                method: "PUT",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    id: id,
-                    titulo: titulo,
-                    conteudo: conteudo
-                })
-            })
-            .then(r => r.json())
-            .then(data => {
-                alert("Post atualizado!");
-                modal.classList.add("hidden");
-                getPosts();
-            });
-        } 
-        else 
-        {
-            // SE NÃO TIVER ID → CRIAR (ENVIA PRO PHP VIA POST no topo do arquivo)
-            this.submit();
+    // SE FOR EDITAR
+    if(id){
+
+        let formData = new FormData();
+        formData.append("id", id);
+        formData.append("titulo", document.querySelector("#titulo").value);
+        formData.append("conteudo", document.querySelector("#conteudo").value);
+        formData.append("_method", "PUT"); // simula PUT
+
+        const thumbFile = document.querySelector("#thumb").files[0];
+        if(thumbFile){
+            formData.append("thumb", thumbFile);
         }
+
+        fetch(UrlEditar, {
+            method: "POST",
+            body: formData
+        })
+        .then(r => r.json())
+        .then(data => {
+            alert("Post atualizado!");
+            modal.classList.add("hidden");
+            getPosts();
+        });
+
+    } 
+    else {
+        this.submit(); // criação normal (insert)
+    }
     });
 
 </script>

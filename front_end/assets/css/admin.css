@@ -12,14 +12,19 @@
 
 
 body {
+   
+    margin: 0;
+    padding: 0;
     background-color: #0f1a20;
     font-family: "Poppins", sans-serif;
 }
 main{
-    background-color: var(--cinza);
+    background-color: var(--cinza); 
+    min-height: 100vh;
 }
 /* Container principal */
 .container {
+    min-height: 100vh;
     padding-top: 40px;
     background-color: var(--preto);
     height: auto;
