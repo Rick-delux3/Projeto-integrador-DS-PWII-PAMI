@@ -1,0 +1,108 @@
+:root{
+    --cor-primaria: #112026;
+    --cor-secundaria: #1E3A40;
+    --cor-terciaria: #3C6973;
+    --cor-quarternaria: #6A9BA6;
+    --cor-quinaria: #B4D2D9;
+    --branco: #E1EFF3;
+    --cinza: #151819;
+    --preto: #0D0F10;
+    --font-primaria: 'Sansation';
+    
+}
+
+
+.banner {
+    width: 100%;
+    background-color: var(--branco);
+    display: flex;
+    align-items: center;
+
+    /* aumentei o padding lateral para afastar dos cantos */
+    padding: 40px 60px; /* << AQUI: antes era 40px 20px */
+    gap: 50px;
+    box-shadow: 0px 0px 10px var(--branco);
+}
+
+/* imagem fica na esquerda */
+.banner img {
+    width: 380px;
+    max-width: 90%;
+}
+
+/* texto vai totalmente para a direita */
+.banner-texto {
+    max-width: 500px;
+    margin-left: auto;  /* empurra o texto para o lado direito */
+}
+
+.banner-texto h1 {
+    font-size: 32px;
+    color: #0f1f26;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.banner-texto p {
+    font-size: 18px;
+    color: #0f1f26;
+    text-align: justify;
+}
+
+/* --- ÁREA INFERIOR ESCURA --- */
+.conteudo {
+    background-color: #071014;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.botao {
+    background-color: #1d3b40;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #2b5b5e;
+}
+
+/* Frase final */
+.frase-final {
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    
+    .banner {
+        flex-direction: column;
+        text-align: center;
+
+        /* reduz padding lateral no mobile */
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .banner-texto {
+        margin-left: 0;
+        max-width: 90%;
+    }
+
+    .banner-texto p {
+        text-align: center;
+    }
+}

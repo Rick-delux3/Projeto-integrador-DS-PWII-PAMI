@@ -14,7 +14,6 @@
 
 
 
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $titulo   = $connection->real_escape_string($_POST['titulo']);
@@ -26,18 +25,17 @@
 
         if (!empty($_FILES['thumb']['name'])) {
             $nome_arquivo = time() . "_" . basename($_FILES["thumb"]["name"]);
-            $destino = "uploads/" . $nome_arquivo;
+            $destino = "../front_end/assets/imagens/" . $nome_arquivo;
 
             move_uploaded_file($_FILES["thumb"]["tmp_name"], $destino);
 
             $thumb = $destino;
         } else {
-            $thumb = "uploads/default.png"; // imagem padrão
+            $thumb = "..front_end/assets/imagens/default.png"; // imagem padrão
         }
 
         // INSERE NO BANCO
-        $sql = "INSERT INTO posts (titulo, conteudo, thumb, iduser) 
-                VALUES ('$titulo', '$conteudo', '$thumb', $iduser)";
+        $sql = "INSERT INTO posts (titulo, conteudo, thumb, iduser)  VALUES ('$titulo', '$conteudo', '$thumb', $iduser)";
 
         if ($connection->query($sql) === TRUE) {
             echo "<script>alert('Post criado!'); window.location='admin.php';</script>";
@@ -91,7 +89,6 @@
     const UrlListar = 'http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/listar_post.php';
     const UrlRemover = 'http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/remover_post_por_id.php';
     const UrlEditar = 'http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/editar_post_por_id.php';
-    const UrlInserir = 'http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/listar_post_por_codigo.php';
 
          function getPosts(){
                 isLoading = true;
@@ -247,29 +244,8 @@
     });
 
 
-    //SALVAR POST
-
-    document.querySelector("#form-modal").addEventListener("submit", e => {
-    e.preventDefault();
-
-    let formData = new FormData(e.target);
-
-    fetch(UrlInserir, {
-        method: "POST",
-        body: formData
-    })
-    .then(() => {
-        modal.classList.add("hidden");
-        getPosts();
-    });
-
-});
-
-
 
 </script>
-
-
 
 
 
