@@ -10,10 +10,10 @@
         $requestData = json_decode($data);
         
         // Agora você pode acessar os dados usando $requestData
-        $codigo = $requestData->CodFun;
+        $codigo = $requestData->id;
     
     
-        $sql = "UPDATE * FROM posts WHERE CodFun = '$codigo'";
+        $sql = "UPDATE * FROM posts WHERE id = '$codigo'";
     
         $result = $connection->query($sql);
     
@@ -29,7 +29,7 @@
     
         } else {
             $response = [
-                'posts' => 'Nenhuma postagem encontrada!';
+                'posts' => 'Nenhuma postagem encontrada!'
             ];
         }
     

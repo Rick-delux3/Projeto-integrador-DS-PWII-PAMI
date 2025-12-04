@@ -10,10 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requestData = json_decode($data);
     
     // Agora você pode acessar os dados usando $requestData
-    $codigo = $requestData->CodFun;
+    $codigo = $requestData->id;
 
 
-	$sql = "SELECT * FROM posts WHERE CodFun = '$codigo'";
+	$sql = "SELECT * FROM posts WHERE id = '$codigo'";
 
     $result = $connection->query($sql);
 
@@ -24,12 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $response = [
+            'error' => false,
             'posts' => $posts
         ];
 
     } else {
         $response = [
-            'posts' => 'Nenhuma postagem encontrada!';
+            'error' => false,
+            'posts' => 'Nenhuma postagem encontrada!'
         ];
     }
 

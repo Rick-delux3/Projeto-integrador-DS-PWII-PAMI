@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../front_end/assets/css/style.css">
     <link rel="stylesheet" href="../front_end/assets/css/header.css">
     <link rel="stylesheet" href="../front_end/assets/css/footer.css">
+    <link rel="stylesheet" href="../front_end/assets/css/admin.css">
+    <link rel="stylesheet" href="../front_end/assets/css/sobre_nos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
