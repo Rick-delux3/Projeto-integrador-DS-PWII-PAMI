@@ -2,28 +2,45 @@
 	include 'cors.php';
 	include 'conexao.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    // Obtém o corpo da solicitação POST
-    $data = file_get_contents("php://input");
+    header("Content-Type: application/json; charset=utf-8");
 
-    // Decodifica o JSON para um objeto PHP
-    $requestData = json_decode($data);
-
-    // Agora você pode acessar os dados usando $requestData
-    $codigo = $requestData->id;
-
-	// CodFun é o nome da coluna que está sendo enviado pelo cliente
-	$sql = "DELETE FROM posts WHERE id='$codigo'";
-
-    if ($connection->query($sql) === true) {
-        $response = [
-            'mensagem' => 'Postagem apagada com sucesso!'
-        ];
-    } else {
-        $response = [
-            'mensagem' => $connection->error
-        ];
+// pega id (via GET)
+    if (!isset($_GET['id'])) {
+        echo json_encode(['success' => false, 'message' => 'ID não informado']);
+        exit;
     }
-    echo json_encode($response);
-}   
+
+    $id = intval($_GET['id']);
+
+    // (Opcional) verificar usuário logado via session
+    session_start();
+    if (!isset($_SESSION['id'])) {
+        echo json_encode(['success' => false, 'message' => 'Não autenticado']);
+        exit;
+    }
+    $iduser = intval($_SESSION['id']);
+
+    // buscar thumb atual para excluir arquivo (opcional)
+    $stmt = $connection->prepare("SELECT thumb FROM posts WHERE id = ? AND iduser = ?");
+    $stmt->bind_param("ii", $id, $iduser);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    if ($row = $res->fetch_assoc()) {
+        $thumb = $row['thumb'];
+        // excluir arquivo físico se quiser (verifique se não é default)
+        if ($thumb && strpos($thumb, 'default.png') === false && file_exists($thumb)) {
+            @unlink($thumb);
+        }
+        // agora remove o registro
+        $stmt2 = $connection->prepare("DELETE FROM posts WHERE id = ? AND iduser = ?");
+        $stmt2->bind_param("ii", $id, $iduser);
+        if ($stmt2->execute()) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false, 'message' => $connection->error]);
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Post não encontrado ou sem permissão.']);
+    }
+   
 ?>

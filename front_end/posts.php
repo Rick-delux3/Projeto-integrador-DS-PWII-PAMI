@@ -1,89 +1,131 @@
 <?php include '../front_end/assets/header.php'; ?>
 
-
-<main>
-    <div id="lista" class="container">
-        
+<main >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-8 col-lg-6" id="lista">
+                <div class="text-center mt-5" id="loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        let lista = document.getElementById("lista");
+</main>
 
-        let posts = {};
+<script>
+    const UrlListar = 'http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/listar_posts.php';
+    const lista = document.getElementById("lista");
+    const loading = document.getElementById("loading");
 
-         function getPosts(){
-                isLoading = true;
+    function getPosts() {
+        // Mostra loading
+        loading.style.display = 'block';
 
-            fetch('http://localhost/Projeto-integrador-DS-PWII-PAMI/back_end/Api/listar_post.php',
-                {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
+        fetch(UrlListar, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
                 }
-            )
-            .then(response => response.json())
+            })
+            .then(r => r.json())
             .then(response => {
-                response.posts.foreach(post =>{
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-                    row.classList.add('d-flex');
-                    row.classList.add('flex-column');
-                    row.setAttribute('id', post.CodFun);
+                // Limpa o container e remove o loading
+                lista.innerHTML = "";
+                
+                // Verifica se existem posts
+                if (!response.posts || response.posts.length === 0) {
+                    lista.innerHTML = "<p class='text-center text-muted'>Nenhum post encontrado.</p>";
+                    return;
+                }
 
+                response.posts.forEach(post => {
+                    // 1. Criação do Card (Container principal do post)
                     let card = document.createElement('div');
-                    card.classList.add('card');
+                    card.classList.add('card', 'shadow-sm', 'mb-4'); // mb-4 dá o espaço entre um post e outro
+
+                    // 2. Header do Card (Avatar e Nome)
+                    let cardHeader = document.createElement('div');
+                    cardHeader.classList.add('card-header', 'bg-white', 'd-flex', 'align-items-center', 'border-0', 'pt-3');
+
+                    let avatar = document.createElement("img");
+                    avatar.src = "../front_end/assets/imagens/account.png"; // Avatar padrão
+                    avatar.classList.add("rounded-circle", "me-2", "border");
+                    avatar.width = 40;
+                    avatar.height = 40;
+                    avatar.style.objectFit = "cover";
+
+                    let username = document.createElement("span");
+                    username.classList.add("fw-bold", "text-dark");
+                    username.innerText = post.username || "Usuário";
+
+                    cardHeader.appendChild(avatar);
+                    cardHeader.appendChild(username);
+
+                    // 3. Imagem do Post (Inserir antes do corpo se existir)
+                    let imgContainer = null;
+                    if (post.thumb) {
+                        imgContainer = document.createElement('img');
+                        imgContainer.src = post.thumb;
+                        imgContainer.classList.add('card-img-top', 'rounded-0');
+                        imgContainer.style.maxHeight = "500px";
+                        imgContainer.style.objectFit = "cover";
+                    }
+
+                    // 4. Corpo do Card (Título e Conteúdo)
+                    let cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+
+                    let cardTitle = document.createElement('h5');
+                    cardTitle.classList.add('card-title', 'fw-bold');
+                    cardTitle.innerText = post.titulo;
+
+                    let cardText = document.createElement('p');
+                    cardText.classList.add('card-text');
+                    cardText.innerText = post.conteudo;
+
+                    // Data
+                    let cardData = document.createElement('p');
+                    cardData.classList.add('card-text', 'mt-3');
+                    let smallData = document.createElement('small');
+                    smallData.classList.add('text-muted');
+                    smallData.innerText = `Postado em ${post.data}`;
                     
-                    let cardheader = document.createElement('div');
-                    cardheader.classList.add('card-header');
-                    cardheader.innerText = "Usuario";
+                    cardData.appendChild(smallData);
 
-                    let cardbody = document.createElement('div');
-                    cardbody.classList.add('card-body');
+                    // Montagem do Corpo
+                    cardBody.appendChild(cardTitle);
+                    cardBody.appendChild(cardText);
+                    cardBody.appendChild(cardData);
+
+                    // 5. Montagem Final do Card
+                    card.appendChild(cardHeader);
                     
-                    let cardtitle =  document.createElement('h5');
-                    cardtitle.classList.add('card-title');
-                    cardtitle.innerText = post.titulo;
+                    // Se tiver imagem, adiciona entre o header e o body (estilo Instagram)
+                    // Ou use card.insertBefore(imgContainer, cardBody) se preferir
+                    if (imgContainer) {
+                        card.appendChild(imgContainer);
+                    }
 
-                    let cardtext = document.createElement('p');
-                    cardtext.classList.add('card-text');
-                    cardtext.innerText = post.conteudo;
+                    card.appendChild(cardBody);
 
-                    let carddata = document.createElement('p');
-                    carddata.classList('card-text');
-                    let smalldata = document.createElement('small');
-                    smalldata.classList.add('text-body-secondary');
-                    smalldata.innerText = `Postado em ${post.data}`;
-
-                    let thumb = document.createElement('img');
-                    thumb.classList.add('card-img-bottom');
-                    thumb.alt = "Thumb";
-                    thumb.src = post.thumb;
-
-
-                    row.appendChild(card);
-                    card.appendChild(cardheader);
-                    card.appendChild(cardbody);
-                    cardbody.appendChild(cardtitle);
-                    cardbody.appendChild(cardtext);
-                    cardbody.appendChild(carddata);
-                    carddata.appendChild(smalldata);
-
-
-
-
-
+                    // Adiciona o card à lista principal
+                    lista.appendChild(card);
                 });
             })
             .catch(erro => {
-                console.log(erro);
+                console.error("Erro ao buscar posts:", erro);
+                lista.innerHTML = "<div class='alert alert-danger'>Erro ao carregar o feed.</div>";
             })
-            .finally(()=>{
-                isLoading = false;
-            })
+            .finally(() => {
+                // Garante que o loading suma
+                if(loading) loading.style.display = 'none';
+            });
+    }
 
-         }
-    </script>
-</main>
-
+    // Inicializa
+    getPosts();
+</script>
 
 <?php include '../front_end/assets/footer.php'; ?>

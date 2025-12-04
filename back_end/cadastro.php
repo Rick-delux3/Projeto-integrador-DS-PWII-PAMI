@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'Api/cors.php';
     include 'Api/conexao.php';
 
@@ -7,6 +8,8 @@
         $email = isset($_POST['email']) ? $_POST['email'] : exit();
         $senha = isset($_POST['senha']) ? $_POST['senha'] : exit();
         $confirmar_senha = isset($_POST['confirmar_senha']) ? $_POST['confirmar_senha'] : exit();
+        
+        header("Location: admin.php");
 
         if (empty($username) || empty($email) || empty($senha) || empty($confirmar_senha)) {
             exit('Preencha todos os campos.');

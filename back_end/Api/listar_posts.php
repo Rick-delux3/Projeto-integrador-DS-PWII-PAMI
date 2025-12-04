@@ -2,9 +2,13 @@
 	include 'cors.php';
 	include 'conexao.php';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-	$sql = "SELECT * FROM posts";
+    $sql = "SELECT posts.*, user.username 
+        FROM posts 
+        INNER JOIN user ON user.id = posts.iduser
+        ORDER BY posts.id DESC";
 
     $result = $connection->query($sql);
 
@@ -20,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     } else {
         $response = [
-            'posts' => 'Nenhum registro encontrado!'
+            'posts' => []
         ];
     }
 

@@ -1,3 +1,127 @@
-.hidden{
-    display: none;
+:root{
+    --cor-primaria: #112026;
+    --cor-secundaria: #1E3A40;
+    --cor-terciaria: #3C6973;
+    --cor-quarternaria: #6A9BA6;
+    --cor-quinaria: #B4D2D9;
+    --branco: #E1EFF3;
+    --cinza: #151819;
+    --preto: #0D0F10;
+    --font-principal: 'Sansation';
 }
+
+
+body {
+    background-color: #0f1a20;
+    font-family: "Poppins", sans-serif;
+}
+main{
+    background-color: var(--cinza);
+}
+/* Container principal */
+.container {
+    padding-top: 40px;
+    background-color: var(--preto);
+    height: auto;
+    
+}
+
+/* Botão adicionar */
+#abrir-modal {
+    background-color: #0e3d53;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+#abrir-modal:hover {
+    background-color: #0c3245;
+}
+
+/* Cards */
+.card {
+    background-color: #15242c;
+    color: #f1f1f1;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* Card header */
+.card-header {
+    background-color: #11323e;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: none;
+    color: #d9e6e8;
+    padding: 15px;
+}
+
+/* Card body */
+.card-body {
+    padding: 20px;
+}
+
+/* Thumbnail */
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Botões editar/excluir — tipo ícones */
+.btn-warning, .btn-danger {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-warning::before {
+    content: "✏️";
+    font-size: 20px;
+}
+
+.btn-danger::before {
+    content: "✖️";
+    font-size: 20px;
+}
+
+/* Texto */
+.card-title {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.card-text {
+    color: #c9d4d7;
+}
+
+/* Modal */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 450px;
+}
+
+.hidden {
+    display: none !important;
+};

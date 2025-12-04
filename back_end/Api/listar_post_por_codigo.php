@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $response = [
             'error' => false,
-            'posts' => 'Nenhuma postagem encontrada!'
+            'posts' => []
         ];
     }
 
