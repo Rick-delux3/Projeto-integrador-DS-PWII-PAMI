@@ -47,7 +47,7 @@
 
                     // 2. Header do Card (Avatar e Nome)
                     let cardHeader = document.createElement('div');
-                    cardHeader.classList.add('card-header', 'bg-white', 'd-flex', 'align-items-center', 'border-0', 'pt-3');
+                    cardHeader.classList.add('card-header', 'd-flex', 'align-items-center', 'border-0', 'pt-3');
 
                     let avatar = document.createElement("img");
                     avatar.src = "../front_end/assets/imagens/account.png"; // Avatar padrão
@@ -57,7 +57,7 @@
                     avatar.style.objectFit = "cover";
 
                     let username = document.createElement("span");
-                    username.classList.add("fw-bold", "text-dark");
+                    username.classList.add("fw-bold");
                     username.innerText = post.username || "Usuário";
 
                     cardHeader.appendChild(avatar);
