@@ -9,14 +9,7 @@
 }
 
 /* Reseta o body */
-body{
-    margin: 0;
-    padding: 0;
-    background: var(--preto);
-    height: 100vh;
-    overflow: hidden; /* evita rolagem */
-    font-family: Arial, sans-serif;
-}
+
 
 /* CONTAINER PRINCIPAL PREENCHENDO TUDO */
 .cadastro-container{

@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="sticky-top">
         <nav>
             <div class="icon"><img src="../front_end/assets/imagens/iconEmpresa.png" alt="Icon da Empresa"></div>
             <div class="buttonHome"><a href="../front_end/index.php">Home</a></div>

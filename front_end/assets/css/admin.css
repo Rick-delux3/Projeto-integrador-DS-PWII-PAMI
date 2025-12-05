@@ -11,13 +11,6 @@
 }
 
 
-body {
-   
-    margin: 0;
-    padding: 0;
-    background-color: #0f1a20;
-    font-family: "Poppins", sans-serif;
-}
 main{
     background-color: var(--cinza); 
     min-height: 100vh;
@@ -51,26 +44,28 @@ main{
 
 /* Cards */
 .card {
-    background-color: #15242c;
+    background-color: var(--cinza) !important;
     color: #f1f1f1;
-    border-radius: 16px;
+    border-radius: 16px !important;
     margin-bottom: 30px;
-    overflow: hidden;
+    overflow: hidden !important;
+    font-family: var(--font-principal) !important;
 }
 
 /* Card header */
 .card-header {
-    background-color: #11323e;
+    background-color: var(--cor-secundaria) !important;
     font-size: 18px;
     font-weight: 600;
     border-bottom: none;
-    color: #d9e6e8;
+    color: var(--branco) !important;
     padding: 15px;
 }
 
 /* Card body */
 .card-body {
     padding: 20px;
+    color: #E1EFF3 !important;
 }
 
 /* Thumbnail */
@@ -102,13 +97,20 @@ main{
 
 /* Texto */
 .card-title {
-    font-weight: 600;
-    font-size: 22px;
+    font-weight: 600 !important;
+    font-size: 22px !important;
+    color: var(--branco) !important;
+    
 }
 
 .card-text {
-    color: #c9d4d7;
+    color: #c9d4d7 !important;
 }
+
+.card-text small {
+    color: #E1EFF3 !important;
+}
+
 
 /* Modal */
 #modal {
@@ -116,6 +118,7 @@ main{
     top: 0;
     left: 0;
     width: 100%;
+    margin: auto;
     height: 100%;
     background: rgba(0,0,0,0.6);
     display: flex;
@@ -124,7 +127,10 @@ main{
 }
 
 .modal-content {
-    width: 450px;
+    width: 550px !important;
+    background-color: var(--cor-secundaria) !important;
+    color: var(--branco) !important;
+    font-family: var(--font-principal) !important;
 }
 
 .hidden {

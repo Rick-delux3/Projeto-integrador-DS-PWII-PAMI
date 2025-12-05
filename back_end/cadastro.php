@@ -9,7 +9,7 @@
         $senha = isset($_POST['senha']) ? $_POST['senha'] : exit();
         $confirmar_senha = isset($_POST['confirmar_senha']) ? $_POST['confirmar_senha'] : exit();
         
-        header("Location: admin.php");
+        header("Location: login.php");
 
         if (empty($username) || empty($email) || empty($senha) || empty($confirmar_senha)) {
             exit('Preencha todos os campos.');

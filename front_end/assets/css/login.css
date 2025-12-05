@@ -10,13 +10,7 @@
 
 /* Reset/Base */
 *{ box-sizing: border-box; }
-body{
-    margin: 0;
-    background: var(--preto);
-    font-family: Arial, sans-serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
+
 
 /* Container preenchendo 100% da tela */
 .login-container{

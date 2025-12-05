@@ -9,3 +9,11 @@
     --preto: #0D0F10;
     --font-principal: 'Sansation';
 }
+
+body{
+    font-family: var(--font-principal);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
